@@ -1,0 +1,21 @@
+name: Mi primera accion compleja
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+      steps:
+        - name: Descarga el codico
+          uses: actions/checkout@v3
+        # Instalamos el framework (revisar si ya viene) y sus dependencias
+        - name: Instalar NodeJs
+          uses: actions/setup-node@v3
+          with:
+            node-version: 18
+        - name: Install dependencies
+          run: npm ci
+        # Ejecuramos los test
+        - name: Run test
+          run: npm test
+
+
+        
